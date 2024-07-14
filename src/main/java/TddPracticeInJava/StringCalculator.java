@@ -8,14 +8,18 @@ public class StringCalculator
         return 0;
     }
     String[] numbers = inputStr.split(",");
-    sumOfTwo = sumationOfNumbers(numbers, sumOfTwo);
+    sumOfTwo = summationOfNumbers(numbers, sumOfTwo);
     return sumOfTwo;
   }
 
   //Splitted number array being passed and sumOfTwo to get the result
-  private sumationOfNumbers(String[] numbers, int sumOfTwo){
+  private summationOfNumbers(String[] numbers, int sumOfTwo){
       for (String number : numbers) {
-        sumOfTwo += Integer.parseInt(number.trim());
+       try {
+              sum += Integer.parseInt(number.trim());
+          } catch (NumberFormatException e) {
+              throw new IllegalArgumentException("Input string contains non-numeric characters.");
+          }
     }
     return sumOfTwo;
   }
