@@ -63,15 +63,15 @@ public class StringCalculatorTest {
     }
 
  
-  //   @Test
-  //   public void ignoreNumbersGreaterThan1000() {
-  //       int expectedResult = 1;
-  //       String input = "1,1001";
-  //       StringCalculator objUnderTest = new StringCalculator();
-  //       int result = objUnderTest.add(input);
+    @Test
+    public void ignoreNumbersGreaterThan1000() {
+        int expectedResult = 1;
+        String input = "1,1001";
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.add(input);
 
-  //      assertEquals(expectedResult,result);
-  //   }
+       assertEquals(expectedResult,result);
+    }
   //   @Test
   //   public void ExpectSumWithCustomDelimiter()
   //   {
