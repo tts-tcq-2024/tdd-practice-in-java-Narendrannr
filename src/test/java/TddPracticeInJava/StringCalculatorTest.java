@@ -72,6 +72,7 @@ public class StringCalculatorTest {
 
        assertEquals(expectedResult,result);
     }
+    
     @Test
     public void ExpectSumWithCustomDelimiter()
     {
@@ -81,5 +82,13 @@ public class StringCalculatorTest {
         int result = objUnderTest.add(input);
 
       assertEquals(expectedResult,result);
+    }
+
+     @Test(expected = IllegalArgumentException.class)
+    public void ExpectException()
+    {
+        String input = "-10;22";
+        StringCalculator objUnderTest = new StringCalculator();
+        objUnderTest.add(input); 
     }
 }
