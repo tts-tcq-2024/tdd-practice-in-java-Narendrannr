@@ -16,7 +16,7 @@ public class StringCalculator
   private static int summationOfNumbers(String[] numbers, int sumOfTwo){
       for (String number : numbers) {
        try {
-              sum += Integer.parseInt(number.trim());
+              sumOfTwo += Integer.parseInt(number.trim());
           } catch (NumberFormatException e) {
               throw new IllegalArgumentException("Input string contains non-numeric characters.");
           }
