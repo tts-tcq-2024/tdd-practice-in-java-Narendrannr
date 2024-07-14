@@ -8,17 +8,21 @@ public class StringCalculator
         return 0;
     }
     String[] numbers = inputStr.split(",");
-    for (String number : numbers) {
+    sumOfTwo = sumationOfNumbers(numbers, sumOfTwo);
+    return sumOfTwo;
+  }
+
+  //Splitted number array being passed and sumOfTwo to get the result
+  private sumationOfNumbers(String[] numbers, int sumOfTwo){
+      for (String number : numbers) {
         sumOfTwo += Integer.parseInt(number.trim());
     }
     return sumOfTwo;
   }
 
+  //null check
   private static boolean checkInputEmpty(String inputStr){
-    if (inputStr == null || inputStr == "") {
-        return true;
-    }
-    return false;
+    return inputStr == null || inputStr.isEmpty();
   }
 }
 
