@@ -2,6 +2,7 @@ package TddPracticeInJava;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class StringCalculatorTest {
@@ -39,6 +40,18 @@ public class StringCalculatorTest {
         assertEquals(expectedResult,result);
     }
 
+    @Test
+    public void testAddThrowsExceptionForNonNumericInput() {
+        String input = "1,a";
+        StringCalculator objUnderTest = new StringCalculator();
+         try {
+            objUnderTest.add(input);
+            fail("Expected an IllegalArgumentException to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Input string contains non-numeric characters.", e.getMessage());
+        }
+    }
+
    @Test
     public void ExpectSumWithNewlineDelimiter()
     {
@@ -59,11 +72,31 @@ public class StringCalculatorTest {
 
        assertEquals(expectedResult,result);
     }
+    
     @Test
     public void ExpectSumWithCustomDelimiter()
     {
         int expectedResult = 3;
         String input = "//;\n1;2";
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.add(input);
+
+      assertEquals(expectedResult,result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ExpectException()
+    {
+        String input = "-10;22";
+        StringCalculator objUnderTest = new StringCalculator();
+        objUnderTest.add(input); 
+    }
+
+    @Test
+    public void ExpectSumForMultipleNumbers()
+    {
+        int expectedResult = 19;
+        String input = "1,2,6,5,5";
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.add(input);
 
