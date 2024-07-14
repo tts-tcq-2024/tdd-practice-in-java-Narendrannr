@@ -33,7 +33,7 @@ public class StringCalculator
       String splitInput;
       if(inputStr.contains(",")){
           splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ",");
-         return result.split(",");
+         return splitInput.split(",");
       }else if(inputStr.contains(";")){
           splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ";");
           return splitInput.split(";");
