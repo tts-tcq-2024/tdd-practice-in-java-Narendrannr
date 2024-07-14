@@ -13,7 +13,7 @@ public class StringCalculator
   }
 
   //Splitted number array being passed and sumOfTwo to get the result
-  private int summationOfNumbers(String[] numbers, int sumOfTwo){
+  private static int summationOfNumbers(String[] numbers, int sumOfTwo){
       for (String number : numbers) {
        try {
               sum += Integer.parseInt(number.trim());
