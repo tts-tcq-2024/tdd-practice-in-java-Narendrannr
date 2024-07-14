@@ -2,8 +2,11 @@ package TddPracticeInJava;
 
 public class StringCalculator
 {
-  public static void main(String []){
-    
+  public static int add(String inputStr) {
+    if (inputStr == null || inputStr == "") {
+        return 0;
+    }
+    return -1;
   }
 }
 
