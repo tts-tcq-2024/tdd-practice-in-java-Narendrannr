@@ -3,7 +3,7 @@ package TddPracticeInJava;
 public class StringCalculator
 {
   public static int add(String inputStr) {
-    int sumOfTwo = -1;
+    int sumOfTwo = 0;
      if (checkInputEmpty(inputStr) || inputStr.equals("0")) {
         return 0;
     }
