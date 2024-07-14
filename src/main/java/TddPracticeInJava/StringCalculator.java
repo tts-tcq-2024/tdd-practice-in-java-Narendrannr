@@ -14,16 +14,22 @@ public class StringCalculator
   private static int summationOfNumbers(String[] numbers){
       int sumOfTwo = 0;
       for (String number : numbers) {
-       try {
-             int num = Integer.parseInt(number.trim());
-              if (num <= 1000) { 
-                  sumOfTwo += num;
-              }
-          } catch (NumberFormatException e) {
-              throw new IllegalArgumentException("Input string contains non-numeric characters.");
-          }
+        sum += parseAndValidateNumber(number);
     }
     return sumOfTwo;
+  }
+
+
+  private static int parseAndValidateNumber(String number) {
+      try {
+          int num = Integer.parseInt(number.trim());
+          if (num > 1000) {
+              return 0;
+          }
+          return num;
+      } catch (NumberFormatException e) {
+          throw new IllegalArgumentException("Input string contains non-numeric characters.");
+      }
   }
 
   //null check
