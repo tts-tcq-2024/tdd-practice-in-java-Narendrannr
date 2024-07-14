@@ -7,7 +7,7 @@ public class StringCalculator
      if (checkInputEmpty(inputStr) || inputStr.equals("0")) {
         return 0;
     }
-    String[] numbers = inputStr.split(",");
+    String[] numbers = splitValues(inputStr);
     sumOfTwo = summationOfNumbers(numbers, sumOfTwo);
     return sumOfTwo;
   }
@@ -27,6 +27,18 @@ public class StringCalculator
   //null check
   private static boolean checkInputEmpty(String inputStr){
     return inputStr == null || inputStr.isEmpty();
+  }
+
+   private static String[] splitValues(String inputStr){
+      String splitInput;
+      if(inputStr.contains(",")){
+          splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ",");
+         return result.split(",");
+      }else if(inputStr.contains(";")){
+          splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ";");
+          return splitInput.split(";");
+      }
+      return null;
   }
 }
 
