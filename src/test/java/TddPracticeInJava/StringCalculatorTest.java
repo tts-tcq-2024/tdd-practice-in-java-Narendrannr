@@ -2,6 +2,7 @@ package TddPracticeInJava;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import org.junit.Test;
 
 public class StringCalculatorTest {
@@ -37,6 +38,13 @@ public class StringCalculatorTest {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.add(input);
         assertEquals(expectedResult,result);
+    }
+
+    @Test
+    public void testAddThrowsExceptionForNonNumericInput() {
+        String input = "1,a";
+        StringCalculator objUnderTest = new StringCalculator();
+        assertThrows(IllegalArgumentException.class, () -> objUnderTest.add(input));
     }
 
   //  @Test
