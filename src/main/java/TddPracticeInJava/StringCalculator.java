@@ -1,12 +1,24 @@
 package TddPracticeInJava;
 
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringCalculator
 {
   public static int add(String inputStr) {
      if (checkInputEmpty(inputStr) || inputStr.equals("0")) {
         return 0;
     }
-    String[] numbers = splitValues(inputStr);
+    String delimiter = ",|\n";
+    String numbers = inputStr;
+
+    Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(inputStr);
+    if (matcher.matches()) {
+        delimiter = Pattern.quote(matcher.group(1));
+        numbers = matcher.group(2);
+    }
+    String[] numbers = splitValues(numbers, delimiter);
     return summationOfNumbers(numbers);
   }
 
@@ -37,16 +49,8 @@ public class StringCalculator
     return inputStr == null || inputStr.isEmpty();
   }
 
-   private static String[] splitValues(String inputStr){
-      String splitInput;
-      if(inputStr.contains(",")){
-          splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ",");
-         return splitInput.split(",");
-      }else if(inputStr.contains(";")){
-          splitInput= inputStr.replaceAll("[\\+\\.\\^\\\n\\;\\//:,]", ";");
-          return splitInput.split(";");
-      }
-      return null;
+   private static String[] splitValues(String inputStr, String delimiter){
+     return inputStr.split(delimiter);
   }
 }
 
