@@ -84,11 +84,22 @@ public class StringCalculatorTest {
       assertEquals(expectedResult,result);
     }
 
-     @Test(expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void ExpectException()
     {
         String input = "-10;22";
         StringCalculator objUnderTest = new StringCalculator();
         objUnderTest.add(input); 
+    }
+
+    @Test
+    public void ExpectSumForMultipleNumbers()
+    {
+        int expectedResult = 19;
+        String input = "1,2,6,5,5";
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.add(input);
+
+      assertEquals(expectedResult,result);
     }
 }
