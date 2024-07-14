@@ -3,17 +3,16 @@ package TddPracticeInJava;
 public class StringCalculator
 {
   public static int add(String inputStr) {
-    int sumOfTwo = 0;
      if (checkInputEmpty(inputStr) || inputStr.equals("0")) {
         return 0;
     }
     String[] numbers = splitValues(inputStr);
-    sumOfTwo = summationOfNumbers(numbers, sumOfTwo);
-    return sumOfTwo;
+    return summationOfNumbers(numbers);
   }
 
   //Splitted number array being passed and sumOfTwo to get the result
-  private static int summationOfNumbers(String[] numbers, int sumOfTwo){
+  private static int summationOfNumbers(String[] numbers){
+      int sumOfTwo = 0;
       for (String number : numbers) {
        try {
               sumOfTwo += Integer.parseInt(number.trim());
