@@ -2,7 +2,7 @@ package TddPracticeInJava;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class StringCalculatorTest {
@@ -44,7 +44,12 @@ public class StringCalculatorTest {
     public void testAddThrowsExceptionForNonNumericInput() {
         String input = "1,a";
         StringCalculator objUnderTest = new StringCalculator();
-        assertThrows(IllegalArgumentException.class, () -> objUnderTest.add(input));
+         try {
+            objUnderTest.add(input);
+            fail("Expected an IllegalArgumentException to be thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Input string contains non-numeric characters.", e.getMessage());
+        }
     }
 
   //  @Test
