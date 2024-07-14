@@ -18,8 +18,7 @@ public class StringCalculator
         delimiter = Pattern.quote(matcher.group(1));
         numbers = matcher.group(2);
     }
-    String[] numbers = splitValues(numbers, delimiter);
-    return summationOfNumbers(numbers);
+   return summationOfNumbers(splitValues(numbers, delimiter));
   }
 
   //Splitted number array being passed and sumOfTwo to get the result
