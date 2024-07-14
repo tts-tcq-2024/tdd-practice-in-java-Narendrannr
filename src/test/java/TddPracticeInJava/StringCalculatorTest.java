@@ -52,15 +52,15 @@ public class StringCalculatorTest {
         }
     }
 
-  //  @Test
-  //   public void ExpectSumWithNewlineDelimiter()
-  //   {
-  //       int expectedResult = 6;
-  //       String input = "1\n2,3";
-  //       StringCalculator objUnderTest = new StringCalculator();
-  //       int result = objUnderTest.add(input);
-  //        assertEquals(expectedResult,result);
-  //   }
+   @Test
+    public void ExpectSumWithNewlineDelimiter()
+    {
+        int expectedResult = 6;
+        String input = "1\n2,3";
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.add(input);
+         assertEquals(expectedResult,result);
+    }
 
  
   //   @Test
