@@ -14,7 +14,7 @@ public class StringCalculator
   private static int summationOfNumbers(String[] numbers){
       int sumOfTwo = 0;
       for (String number : numbers) {
-        sum += parseAndValidateNumber(number);
+        sumOfTwo  += parseAndValidateNumber(number);
     }
     return sumOfTwo;
   }
