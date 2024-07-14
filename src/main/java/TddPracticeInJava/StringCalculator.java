@@ -10,25 +10,21 @@ public class StringCalculator
      if (checkInputEmpty(inputStr) || inputStr.equals("0")) {
         return 0;
     }
-    String delimiter = ",|\n";
-    String numbers = inputStr;
-
-    String[] customDelimiterResult = handleCustomDelimiter(inputStr);
-    if (customDelimiterResult != null) {
-        delimiter = customDelimiterResult[0];
-        numbers = customDelimiterResult[1];
-    }
+    String[] delimiterAndNumbers = handleCustomDelimiter(inputStr);
+    String delimiter = delimiterAndNumbers[0];
+    String numbers = delimiterAndNumbers[1];
+    
    return summationOfNumbers(splitValues(numbers, delimiter));
   }
 
-  private static String[] handleCustomDelimiter(String inputStr) {
+ private static String[] handleCustomDelimiter(String inputStr) {
     Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(inputStr);
     if (matcher.matches()) {
         String delimiter = Pattern.quote(matcher.group(1));
         String numbers = matcher.group(2);
         return new String[]{delimiter, numbers};
     }
-    return null;
+    return new String[]{",|\n", inputStr}; 
   }
 
   //Splitted number array being passed and sumOfTwo to get the result
