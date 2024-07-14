@@ -29,15 +29,15 @@ public class StringCalculatorTest {
 
     }
 
-  //  @Test
-  //   public void ExpectSumForTwoNumbers()
-  //   {
-  //       int expectedResult = 3;
-  //       String input = "1,2";
-  //       StringCalculator objUnderTest = new StringCalculator();
-  //       int result = objUnderTest.add(input);
-  //       assertEquals(expectedResult,result);
-  //   }
+   @Test
+    public void ExpectSumForTwoNumbers()
+    {
+        int expectedResult = 3;
+        String input = "1,2";
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.add(input);
+        assertEquals(expectedResult,result);
+    }
 
   //  @Test
   //   public void ExpectSumWithNewlineDelimiter()
